@@ -1,0 +1,4 @@
+# ShellCheck configuration
+external-sources=false
+disable=SC1091
+severity=style

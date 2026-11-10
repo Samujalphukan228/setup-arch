@@ -85,7 +85,7 @@ connect_ssid() {
 
 saved_menu() {
     local -a names=() labels=()
-    local -A act_of=() name_of=()
+    local -A act_of=()
 
     while IFS=: read -r type name; do
         [[ $type == "802-11-wireless" ]] && names+=("$name")
@@ -100,7 +100,6 @@ saved_menu() {
     for n in "${names[@]}"; do
         labels+=("󰖩  $n")
         act_of["󰖩  $n"]="up:$n"
-        name_of["󰖩  $n"]="$n"
     done
     labels+=("󰅖  Forget a network…")
     act_of["󰅖  Forget a network…"]="forget"
@@ -130,11 +129,13 @@ saved_menu() {
             local victim=${victim_of[$choice]:-}
             [[ -z $victim ]] && return
             local confirm
-            confirm=$(printf 'Cancel\nDelete' | wofi_menu --prompt "Delete “$victim”?") || return
+            confirm=$(printf 'Cancel\nDelete' | wofi_menu --prompt "Delete \"$victim\"?") || return
             if [[ $confirm == "Delete" ]]; then
-                nmcli connection delete id "$victim" >/dev/null 2>&1 \
-                    && notify "Forgotten" "$victim" \
-                    || notify-send -u critical -a "Network" "Could not forget $victim"
+                if nmcli connection delete id "$victim" >/dev/null 2>&1; then
+                    notify "Forgotten" "$victim"
+                else
+                    notify-send -u critical -a "Network" "Could not forget $victim"
+                fi
             fi
             ;;
     esac
@@ -172,7 +173,7 @@ main_menu() {
         labels+=("󰙨  Connection details");   act_of["󰙨  Connection details"]="details"
         labels+=("󰅖  Close");                act_of["󰅖  Close"]="quit"
     else
-        local inuse ssid sig sec i mark lock
+        local inuse ssid sig sec mark lock
         while IFS=: read -r inuse ssid sig sec; do
             [[ -z $ssid ]] && continue
             ap_ssid+=("$ssid")
@@ -181,7 +182,8 @@ main_menu() {
             [[ $inuse == "*" ]] && mark="󰄬 "
             lock=""
             [[ -n $sec ]] && lock="  󰌾"
-            local label="${mark}$(signal_icon "$sig")  ${ssid}   ${sig}%${lock}"
+            local label
+            label="${mark}$(signal_icon "$sig")  ${ssid}   ${sig}%${lock}"
             labels+=("$label")
             act_of["$label"]="ap:${#ap_ssid[@]}-1"
         done < <(nmcli -t --escape no -f IN-USE,SSID,SIGNAL,SECURITY \

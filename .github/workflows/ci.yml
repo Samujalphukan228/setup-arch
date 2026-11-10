@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Lint & test (Ubuntu)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install ShellCheck
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y shellcheck
+
+      - name: Run tests
+        run: npm test
+
+      - name: Verify package contents
+        run: npm pack --dry-run --ignore-scripts
+
+  arch:
+    name: Full test suite (Arch Linux)
+    runs-on: ubuntu-latest
+    container: archlinux:latest
+    steps:
+      - name: Install prerequisites
+        run: |
+          pacman -Syu --noconfirm
+          pacman -S --noconfirm bash git nodejs npm shellcheck
+          useradd -m builder
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run test suite as non-root
+        run: runuser -u builder -- env HOME=/home/builder bash test/run.sh
+
+      - name: Verify installer dry-run as non-root
+        run: |
+          runuser -u builder -- env HOME=/home/builder \
+            bash bin/setup-arch --dry-run --no-packages --no-services

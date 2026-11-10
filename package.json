@@ -1,17 +1,36 @@
 {
   "name": "setup-arch",
   "version": "1.0.0",
-  "description": "One-command full Arch + Hyprland rice installer: packages, services, dotfiles and fonts.",
+  "description": "One-command Arch Linux + Hyprland rice installer: packages, services, dotfiles and fonts.",
   "bin": {
     "setup-arch": "bin/setup-arch"
   },
   "files": [
-    "bin",
-    "lib",
-    "packages",
-    "dotfiles",
-    "README.md"
+    "bin/",
+    "lib/",
+    "packages/",
+    "dotfiles/",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "CONTRIBUTING.md"
   ],
+  "scripts": {
+    "test": "bash test/run.sh",
+    "lint": "shellcheck bin/setup-arch lib/*.sh test/*.sh dotfiles/hypr/scripts/*.sh dotfiles/waybar/scripts/*.sh",
+    "prepack": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Samujalphukan228/setup-arch.git"
+  },
+  "homepage": "https://github.com/Samujalphukan228/setup-arch#readme",
+  "bugs": {
+    "url": "https://github.com/Samujalphukan228/setup-arch/issues"
+  },
+  "author": "Samujalphukan228 <samujalphukan@yahoo.com>",
+  "license": "MIT",
   "os": [
     "linux"
   ],
@@ -23,8 +42,14 @@
     "hyprland",
     "waybar",
     "arch",
+    "archlinux",
     "rice",
-    "installer"
+    "installer",
+    "bootstrap",
+    "wofi",
+    "cli"
   ],
-  "license": "MIT"
+  "publishConfig": {
+    "access": "public"
+  }
 }
