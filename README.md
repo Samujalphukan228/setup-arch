@@ -66,7 +66,8 @@ Existing files are backed up to `~/.config-backup-<timestamp>/` before being rep
 
 ## Not included (on purpose)
 
-SSH/GPG keys, `gh` auth tokens, browser profiles, Docker volumes, `.npmrc`/API tokens, project repos, and personal files.
+SSH/GPG keys, `gh` auth tokens, browser profiles, Docker volumes, `.npmrc`/API tokens,
+`godmode` API keys, project repos, and personal files.
 
 ## Requirements
 

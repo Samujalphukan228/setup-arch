@@ -79,10 +79,11 @@ check "wifimenu is executable" test -x dotfiles/waybar/scripts/wifimenu.sh
 check "powermenu is executable" test -x dotfiles/waybar/scripts/powermenu.sh
 
 section "No secrets committed"
-if grep -rqE 'ghp_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|BEGIN [A-Z ]*PRIVATE KEY' dotfiles bin lib packages 2>/dev/null; then
-    fail "no secrets in dotfiles/scripts"
+secret_re='ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|sk-[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|AIza[0-9A-Za-z_-]{30,}|AQ\.[A-Za-z0-9_-]{20,}|BEGIN [A-Z ]*PRIVATE KEY|cortex_internal_key[[:space:]]*=[[:space:]]*"[^"]+"'
+if grep -rqE "$secret_re" dotfiles bin lib packages test README.md 2>/dev/null; then
+    fail "no secrets in tracked content"
 else
-    pass "no secrets in dotfiles/scripts"
+    pass "no secrets in tracked content"
 fi
 
 section "CLI"
