@@ -13,7 +13,6 @@ dosfstools
 dunst
 efibootmgr
 flameshot
-foot
 git
 git-filter-repo
 github-cli
@@ -114,6 +113,5 @@ xorg-xwayland
 xorg-xwd
 xorg-xwininfo
 xorg-xwud
-xterm
 zenity
 zram-generator

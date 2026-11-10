@@ -24,7 +24,7 @@ npx setup-arch
 
 ## What it installs
 
-- **119 pacman packages** — Hyprland 0.57, Waybar, Wofi, Kitty, Docker, MariaDB, PipeWire, fonts, Xorg fallback, etc. (`packages/pacman.txt`)
+- **117 pacman packages** — Hyprland 0.57, Waybar, Wofi, Kitty, Docker, MariaDB, PipeWire, fonts, Xorg fallback, etc. (`packages/pacman.txt`)
 - **7 AUR packages** — Brave, Bibata cursors, pamac, yay, etc. (`packages/aur.txt`)
 - **Services** — bluetooth, docker, NetworkManager, MariaDB, timesyncd, fstrim, pamac cache cleanup (`packages/services.txt`), plus your user added to the `docker` group
 - **Dotfiles** — everything under `dotfiles/` copied to `~/.config/` plus `~/.bashrc`, `~/.bash_profile`, `~/.gitconfig`
