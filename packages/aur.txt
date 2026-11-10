@@ -1,0 +1,9 @@
+bibata-cursor-theme
+binance
+brave-bin
+libpamac-aur
+libsoup
+pamac-aur
+python-pkg_resources
+visual-studio-code-bin
+yay

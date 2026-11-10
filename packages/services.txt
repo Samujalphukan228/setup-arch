@@ -1,0 +1,7 @@
+bluetooth.service
+docker.service
+NetworkManager.service
+mariadb.service
+systemd-timesyncd.service
+fstrim.timer
+pamac-cleancache.timer

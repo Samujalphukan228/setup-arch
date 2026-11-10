@@ -1,0 +1,54 @@
+* {
+    font-family: JetBrains Mono;
+    font-size: 14px;
+}
+
+.notification {
+    background: rgba(20,20,20,0.55);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    margin: 10px;
+    padding: 12px;
+}
+
+.notification-content {
+    background: transparent;
+    padding: 8px;
+}
+
+.notification-title {
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.notification-body {
+    color: #dddddd;
+}
+
+.control-center {
+    background: rgba(15,15,15,0.50);
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,0.06);
+    margin: 10px;
+    padding: 12px;
+}
+
+.control-center-list {
+    background: transparent;
+}
+
+.widget-title {
+    color: white;
+    font-weight: bold;
+}
+
+.widget-buttons-grid {
+    background: transparent;
+}
+
+.widget-mpris {
+    background: rgba(255,255,255,0.03);
+    border-radius: 14px;
+    padding: 8px;
+}

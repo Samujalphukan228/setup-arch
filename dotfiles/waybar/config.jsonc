@@ -1,0 +1,169 @@
+// ─── Waybar config ───────────────────────────────────────────────
+// Floating minimal bar for Hyprland (monochrome, matches wallpaper)
+// ─────────────────────────────────────────────────────────────────
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "spacing": 4,
+    "margin-top": 6,
+    "margin-left": 8,
+    "margin-right": 8,
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/submap"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "tray",
+        "custom/notification",
+        "bluetooth",
+        "network",
+        "pulseaudio",
+        "backlight",
+        "battery",
+        "clock"
+    ],
+
+    // ── Workspaces ────────────────────────────────────────────────
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-click": "activate",
+        "disable-scroll": true,
+        "all-outputs": true,
+        "persistent-workspaces": {
+            "*": 5
+        }
+    },
+
+    "hyprland/submap": {
+        "format": "󰘳 {}",
+        "tooltip": false
+    },
+
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 55,
+        "separate-outputs": true,
+        "tooltip": false,
+        "rewrite": {
+            "": "Desktop",
+            ".* - Mozilla Firefox": "󰈹 Firefox",
+            ".* - Chromium": "󰊯 Chromium",
+            ".* - Code": "󰨞 VS Code"
+        }
+    },
+
+    // ── Notifications ─────────────────────────────────────────────
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "󰂚",
+            "none": "󰂜",
+            "dnd-notification": "󰂛",
+            "dnd-none": "󰂛",
+            "inhibited-notification": "󰂚",
+            "inhibited-none": "󰂜",
+            "dnd-inhibited-notification": "󰂛",
+            "dnd-inhibited-none": "󰂛"
+        },
+        "return-type": "json",
+        "exec": "swaync-client -swb",
+        "exec-if": "which swaync-client",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+
+    // ── Bluetooth ─────────────────────────────────────────────────
+    "bluetooth": {
+        "format": "󰂯",
+        "format-connected": "󰂱 {num_connections}",
+        "format-disabled": "󰂲",
+        "tooltip-format": "{controller_alias}  {controller_address}",
+        "tooltip-format-connected": "{controller_alias}  {controller_address}\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}  {device_address}",
+        "on-click": "blueman-manager"
+    },
+
+    // ── Network ───────────────────────────────────────────────────
+    "network": {
+        "format-wifi": "󰤨 {signalStrength}%",
+        "format-ethernet": "󰈀 {ipaddr}",
+        "format-linked": "󰈀 {ifname}",
+        "format-disconnected": "󰤭",
+        "tooltip-format-wifi": "{essid}\n{ipaddr}/{cidr}\n{signalStrength}%  {frequency} GHz\n\nLeft click: manage networks",
+        "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}\n\nLeft click: manage networks",
+        "tooltip-format-linked": "{ifname}\nNo IP address\n\nLeft click: manage networks",
+        "tooltip-format-disconnected": "Disconnected\n\nLeft click: manage networks",
+        "on-click": "$HOME/.config/waybar/scripts/wifimenu.sh",
+        "on-click-right": "$HOME/.config/waybar/scripts/wifimenu.sh --toggle"
+    },
+
+    // ── Audio ─────────────────────────────────────────────────────
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 muted",
+        "format-icons": {
+            "headphone": "󰋋",
+            "headset": "󰋎",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "tooltip-format": "{desc}\n{volume}%",
+        "on-click": "pavucontrol",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+    },
+
+    // ── Brightness ────────────────────────────────────────────────
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "tooltip": false,
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl set 5%-"
+    },
+
+    // ── Battery ───────────────────────────────────────────────────
+    "battery": {
+        "bat": "BAT0",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip-format": "{timeTo} remaining  {power}W"
+    },
+
+    // ── Clock ─────────────────────────────────────────────────────
+    "clock": {
+        "format": "{:%I:%M %p}",
+        "format-alt": "{:%a %d %b  %I:%M %p}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#f2f2f2'><b>{}</b></span>",
+                "days": "<span color='#c8c8cc'>{}</span>",
+                "weekdays": "<span color='#8a8a8f'><b>{}</b></span>",
+                "today": "<span color='#0b0b0d' background='#f2f2f2'><b>{}</b></span>"
+            }
+        }
+    },
+
+    // ── Tray & power ──────────────────────────────────────────────
+    "tray": {
+        "icon-size": 15,
+        "spacing": 8
+    }
+}

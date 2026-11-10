@@ -1,0 +1,75 @@
+/* ─── Wofi launcher theme ───────────────────────────────────────
+   Matches the Waybar: monochrome, translucent dark, rounded
+   ────────────────────────────────────────────────────────────── */
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "JetBrainsMono NF", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+window {
+    margin: 0;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    background-color: rgba(10, 10, 12, 0.96);
+    color: #e6e6e6;
+}
+
+#outer-box {
+    margin: 0;
+    padding: 14px;
+}
+
+#input {
+    margin: 2px 2px 12px 2px;
+    padding: 11px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.06);
+    color: #f2f2f2;
+    caret-color: #f2f2f2;
+}
+
+#input:focus {
+    border-color: rgba(255, 255, 255, 0.24);
+}
+
+#inner-box {
+    margin: 0;
+    padding: 0;
+}
+
+#scroll {
+    margin: 0;
+}
+
+#entry {
+    padding: 9px 10px;
+    margin: 2px 0;
+    border-radius: 9px;
+    color: #cfcfd4;
+}
+
+#entry:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+}
+
+#entry:selected {
+    background-color: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+}
+
+#entry:selected #text {
+    font-weight: 700;
+}
+
+#img {
+    margin-right: 10px;
+}
+
+#text {
+    margin-left: 4px;
+}

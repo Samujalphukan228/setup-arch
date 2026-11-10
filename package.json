@@ -1,0 +1,30 @@
+{
+  "name": "setup-sam",
+  "version": "1.0.0",
+  "description": "One-command full Arch + Hyprland rice installer: packages, services, dotfiles and fonts.",
+  "bin": {
+    "setup-sam": "bin/setup-sam"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "packages",
+    "dotfiles",
+    "README.md"
+  ],
+  "os": [
+    "linux"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "dotfiles",
+    "hyprland",
+    "waybar",
+    "arch",
+    "rice",
+    "installer"
+  ],
+  "license": "MIT"
+}

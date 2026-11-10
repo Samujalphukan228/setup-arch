@@ -1,0 +1,15 @@
+{
+  "name": "luna",
+  "level": 4,
+  "xp": 95,
+  "xp_next": 97,
+  "happiness": 100,
+  "hunger": 56.27999999999957,
+  "energy": 59.05999999999894,
+  "affection": 100,
+  "times_fed": 7,
+  "times_petted": 63,
+  "times_talked": 4,
+  "times_played": 0,
+  "uptime_min": 222
+}
