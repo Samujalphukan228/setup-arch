@@ -135,6 +135,18 @@ log "Refreshing font cache"
 fc-cache -f >/dev/null 2>&1 || true
 ok "fonts refreshed"
 
+# ── 5. jump-cli ──────────────────────────────────────────────
+log "Installing jump-cli (directory jumper)"
+if [ -x "$HOME/.local/bin/jump-bin" ]; then
+    ok "jump-cli already installed"
+else
+    if curl -sSf https://raw.githubusercontent.com/Samujalphukan228/jump-cli/master/install.sh | sh; then
+        ok "jump-cli installed (~/.local/bin/jump-bin + shell wrapper)"
+    else
+        warn "jump-cli install failed (continuing)"
+    fi
+fi
+
 # ── 5. Done ──────────────────────────────────────────────────
 cat <<EOF
 
@@ -142,6 +154,7 @@ cat <<EOF
 
   Next steps:
     • log out and back in (or reboot) to load the Hyprland session
+    • run: source ~/.bashrc  (loads the jump / exp shell functions)
     • make sure your wallpaper exists at the path in ~/.config/wpaperd/config
     • secrets are NOT included (SSH keys, gh auth, browser profiles, tokens)
 

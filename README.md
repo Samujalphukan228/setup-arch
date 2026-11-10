@@ -14,6 +14,7 @@ setup-arch
 - **Services** — bluetooth, docker, NetworkManager, mariadb, timesyncd, fstrim, pamac cache cleanup (`packages/services.txt`), plus your user added to the `docker` group
 - **Dotfiles** — everything under `dotfiles/` copied to `~/.config/` plus `~/.bashrc`, `~/.bash_profile`, `~/.gitconfig`
 - **Font cache** refreshed
+- **[jump-cli](https://jump-livid-gamma.vercel.app/)** — `jump` + `exp` directory jumper installed to `~/.local/bin` via its official installer
 
 ## The rice it restores
 
