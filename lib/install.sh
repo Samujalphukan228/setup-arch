@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ─────────────────────────────────────────────────────────────
-# setup-sam installer
+# setup-arch installer
 # Restores Samujal's full Arch + Hyprland rice:
 #   packages (pacman + AUR) → services → dotfiles → fonts
 # ─────────────────────────────────────────────────────────────
@@ -23,7 +23,7 @@ for arg in "$@"; do
         --no-dotfiles)  DO_DOTFILES=0 ;;
         --no-services)  DO_SERVICES=0 ;;
         -h|--help)
-            echo "Usage: setup-sam [-y] [--no-packages] [--no-dotfiles] [--no-services]"
+            echo "Usage: setup-arch [-y] [--no-packages] [--no-dotfiles] [--no-services]"
             echo
             echo "Restores Samujal's full Arch + Hyprland rice (packages, services, dotfiles)."
             exit 0
@@ -43,7 +43,7 @@ command -v pacman >/dev/null 2>&1 || die "Arch Linux required (pacman not found)
 if [ "$ASSUME_YES" -eq 0 ]; then
     cat <<EOF
 
-  setup-sam — full Arch + Hyprland rice installer
+  setup-arch — full Arch + Hyprland rice installer
 
   This will:
     • install $(grep -cve '^\s*$' "$ROOT/packages/pacman.txt") pacman packages and $(grep -cve '^\s*$' "$ROOT/packages/aur.txt" 2>/dev/null || echo 0) AUR packages (needs sudo)
@@ -138,7 +138,7 @@ ok "fonts refreshed"
 # ── 5. Done ──────────────────────────────────────────────────
 cat <<EOF
 
-  setup-sam finished.
+  setup-arch finished.
 
   Next steps:
     • log out and back in (or reboot) to load the Hyprland session

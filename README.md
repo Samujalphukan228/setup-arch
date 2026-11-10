@@ -1,10 +1,10 @@
-# setup-sam
+# setup-arch
 
 One command to rebuild my whole Arch + Hyprland setup:
 
 ```bash
-npm i -g setup-sam   # (or npm link inside this repo)
-setup-sam
+npm i -g setup-arch   # (or npm link inside this repo)
+setup-arch
 ```
 
 ## What it installs
@@ -37,10 +37,10 @@ Keybinds you get:
 ## Options
 
 ```bash
-setup-sam --yes            # no confirmation prompt
-setup-sam --no-packages    # dotfiles + services only
-setup-sam --no-dotfiles    # packages + services only
-setup-sam --no-services    # skip systemd units
+setup-arch --yes            # no confirmation prompt
+setup-arch --no-packages    # dotfiles + services only
+setup-arch --no-dotfiles    # packages + services only
+setup-arch --no-services    # skip systemd units
 ```
 
 Existing files are backed up to `~/.config-backup-<timestamp>/` before being replaced.

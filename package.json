@@ -1,9 +1,9 @@
 {
-  "name": "setup-sam",
+  "name": "setup-arch",
   "version": "1.0.0",
   "description": "One-command full Arch + Hyprland rice installer: packages, services, dotfiles and fonts.",
   "bin": {
-    "setup-sam": "bin/setup-sam"
+    "setup-arch": "bin/setup-arch"
   },
   "files": [
     "bin",
