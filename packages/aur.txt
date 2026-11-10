@@ -1,7 +1,3 @@
 bibata-cursor-theme
 brave-bin
-libpamac-aur
-libsoup
-pamac-aur
-python-pkg_resources
 yay

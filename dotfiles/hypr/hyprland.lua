@@ -185,7 +185,7 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("wofi --show drun"))
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("/home/samujal/.config/hypr/scripts/system-switcher.sh"))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("bash -c 'if pgrep -x wofi >/dev/null; then pkill -x wofi; else wofi --show drun; fi'"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("brave"))
-hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("pamac-manager"))
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("kitty --hold -e yay -Syu"))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("killall -SIGUSR1 waybar"))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("/home/samujal/.config/hypr/scripts/system-switcher.sh"))
 

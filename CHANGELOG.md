@@ -9,9 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - One-command installer for a full Arch Linux + Hyprland rice
-- 117 pacman packages and 7 AUR packages
+- 63 pacman packages and 3 AUR packages
 - Kitty as the single terminal emulator (foot and xterm removed)
-- systemd service setup (bluetooth, docker, NetworkManager, MariaDB, timesyncd, fstrim, pamac)
+- systemd service setup (bluetooth, docker, NetworkManager, timesyncd, fstrim)
 - Docker group membership for the installing user
 - Dotfile restore with automatic timestamped backups (`~/.config-backup-*`)
 - Hyprland 0.57 Lua config with keybinds, autostart, window rules

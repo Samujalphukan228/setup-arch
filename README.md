@@ -24,9 +24,9 @@ npx setup-arch
 
 ## What it installs
 
-- **117 pacman packages** — Hyprland 0.57, Waybar, Wofi, Kitty, Docker, MariaDB, PipeWire, fonts, Xorg fallback, etc. (`packages/pacman.txt`)
-- **7 AUR packages** — Brave, Bibata cursors, pamac, yay, etc. (`packages/aur.txt`)
-- **Services** — bluetooth, docker, NetworkManager, MariaDB, timesyncd, fstrim, pamac cache cleanup (`packages/services.txt`), plus your user added to the `docker` group
+- **63 pacman packages** — Hyprland 0.57, Waybar, Wofi, Kitty, Docker, PipeWire, fonts, minimal Xwayland support, etc. (`packages/pacman.txt`)
+- **3 AUR packages** — Brave, Bibata cursors, yay (`packages/aur.txt`)
+- **Services** — bluetooth, docker, NetworkManager, timesyncd, fstrim (`packages/services.txt`), plus your user added to the `docker` group
 - **Dotfiles** — everything under `dotfiles/` copied to `~/.config/` plus `~/.bashrc`, `~/.bash_profile`, `~/.gitconfig`
 - **Font cache** refreshed
 - **[jump-cli](https://jump-livid-gamma.vercel.app/)** — `jump` + `exp` directory jumper installed to `~/.local/bin` via its official installer
